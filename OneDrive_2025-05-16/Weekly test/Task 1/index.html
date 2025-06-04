@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly test 20250516 - Test 1</title>
+
+  <style>
+    body {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      margin:0;
+    }
+    
+    #container {
+      height: 100vh;
+      display:grid;
+      grid-template-columns: 0.2fr 0.5fr 0.5fr 0.2fr;
+      grid-template-rows: 0.05fr 0.15fr 1fr 0.25fr 0.05fr;
+      grid-template-areas: 
+      "header header header header"
+      "aside1 articleHead articleHead aside2"
+      "aside1 article1 article2 aside2"
+      "aside1 article3 article3 aside2"
+      "footer footer footer footer";
+    }
+
+    header {
+      grid-area: header;
+      margin-bottom:5px;
+      background-color: rgb(48, 50, 52);
+    }
+
+    nav {
+      display: flex;
+    }
+
+    nav a {
+      display: inline-block;
+      padding: 10px;
+      color: #fff;
+    }
+
+    nav a:hover {
+      display: inline-block;
+      padding: 10px;
+      background-color:rgb(22, 82, 123);
+      color: #fff;
+    }
+
+    
+    #articleHead {
+      padding: 10px;
+      grid-area: articleHead;
+      background-color: rgb(25, 155, 241)
+    }
+
+    #aside1 {
+      padding: 10px;
+      grid-area: aside1;
+      background-color: palevioletred;
+    }
+
+    #aside2 {
+      padding: 10px;
+      grid-area: aside2;
+      background-color: rgb(180, 102, 128);
+    }
+
+    #article1 {
+      padding: 10px;
+      grid-area: article1;
+      background-color: rgb(219, 197, 239);
+    }
+
+    #article2 {
+      padding: 10px;
+      grid-area: article2;
+      background-color: rgb(180, 163, 196);
+    }
+
+    #article3 {
+      padding: 10px;
+      grid-area: article3;
+      background-color: rgb(100, 176, 172);
+    }
+
+    footer {
+      padding: 2px;
+      grid-area: footer;
+      background-color: rgb(50, 237, 212);
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div id="container">
+    <header id="top">
+      <nav>
+        
+        <a href="http://www.google.com">Link to google</a>
+        <a href="http://www.bing.com">Link to bing</a>
+        <a href="http://www.altavista.com">Link to AltaVista</a>
+        
+      </nav>
+    </header>
+    <aside id="aside1">
+      <h3>HTML6 features:</h3>
+      <UL>
+        <LI>Flash is back!</LI>
+        <LI>&lt;AI>-tag to create whatever you want.</LI>
+        <LI>SuperScript - A new javascript!</LI>
+      </UL>
+    </aside>
+
+    <div id="articleHead"><h2>HTML6 is coming!</h2>(Articles by FakeNews 2025)</div>
+
+    <article id="article1"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere obcaecati dolores, laboriosam expedita quam rem vel libero illum hic aliquam. Ad ut maxime voluptates? Sint, illum corporis. Voluptatum, iure accusamus. </p><p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ipsam numquam quibusdam aut laboriosam praesentium, magni quidem corrupti. Atque hic delectus deleniti ab pariatur fugit distinctio quas nam repudiandae similique! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quasi quibusdam aspernatur harum odit sequi atque minima et fugiat voluptate adipisci, quaerat aut nihil animi laboriosam accusamus accusantium iure nobis! </p></article>
+
+    <article id="article2"><p></p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic, numquam. Eveniet officiis alias saepe doloremque deleniti vel nihil temporibus ullam animi delectus porro dolores illum, recusandae nam mollitia dicta in! Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio autem dolor labore, nostrum nesciunt delectus officiis aperiam odio error porro unde magnam. Necessitatibus placeat ipsam sunt eligendi inventore culpa tempora. </p><p> Lorem ipsum dolor sit amet consectetur adipisicing elit. A possimus optio, tempora commodi blanditiis tenetur, voluptatem perspiciatis voluptatibus magni, officia incidunt. Dolore repellat nam dolorum beatae aut, voluptatem quos et. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti tempora commodi consectetur ad quam nesciunt odit iste doloribus, laborum cupiditate reiciendis, obcaecati ipsum illo sint tempore quis quas! Praesentium, labore.</p></article>
+
+    <article id="article3"><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed mollitia fuga nihil earum, quos in enim maxime molestias labore perspiciatis accusantium aperiam porro ex accusamus pariatur iusto fugiat dolores! Necessitatibus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia recusandae, nisi, eaque similique optio, deleniti molestias ipsam ducimus voluptas amet omnis autem quia totam! Assumenda doloremque vel natus sequi nihil. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aperiam aspernatur illo illum deserunt ex at commodi porro.</p></article>
+
+    <aside id="aside2"><h3>Internal Links</h3>
+      <UL>
+        <LI><a href="#down">Go down</a></LI>
+        <LI><a href="#top">Go to top</a></LI>
+      </UL>
+    </aside>
+
+    <footer id="down">Tobias Eriksson &copy; 2025</a></footer>
+
+  </div>
+</body>
+</html>

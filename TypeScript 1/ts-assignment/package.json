@@ -1,0 +1,25 @@
+{
+  "name": "typescript-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "./src/index.ts",
+  "scripts": {
+    "prestart": "tsc",
+    "start": "node ./out/index.js",
+    "watch": "tsc --watch",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "@types/prompt-sync": "^4.2.3",
+    "typescript": "^5.4.5"
+  }
+}

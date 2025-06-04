@@ -1,0 +1,15 @@
+Test
+Good Morning! 
+ 
+You can use if , loop, function and switch case to solve this task. (If any one wants to use array, set and map, feel free to use)
+ 
+Implement following tasks
+Design a menu to display product name and price. Have at least 5 products.
+Once product is selected – ask for the quantity
+Then calculate the total cost of the product.
+Check if the user wants to proceed to purchase again or to check out.
+If purchase is selected repeat task 2
+If the checkout option is selected display the total price of all purchases.
+Ask user to enter the price to pay.
+In case the user has paid more than the total purchase price then display the return amount.
+ 
