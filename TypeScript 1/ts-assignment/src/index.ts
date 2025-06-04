@@ -147,11 +147,126 @@ function runExerciseEight() {
 
 function runExerciseNine() {
 
-  
+  /*
+  Let the user input any string, then check if the string is a palindrome sentence or not and display that result.
+  Example 1: Entered “A man, a plan, a canal – Panama”
+  Result: A man, a plan, a canal – Panama is a palindrome.
+  Example 2: Entered Aibohphobia
+  Result Aibohphobia is a palindrome.
+  Example 3: Entered Palindrome
+  Result: Palindrome is not a palindrome. 
+  */
+
+  const isPal = (v : string) : boolean => {
+    return (v == [...v].reverse().join(''));
+  }
+  console.log(isPal(readLine("Enter a string to see if its a palindrome: ")) ? "it´s a palindrome." : "it´s not a palindrome.")
   
 }
 
-function runExerciseTen() {}
+function runExerciseTen() {
+
+  let str : string = "";
+
+
+// String manipulation
+// A)
+// Change string “The quick fox Jumped Over the DOG” to the string “The brown fox jumped over the lazy dog” using required string manipulation functions.
+
+str = "The quick fox Jumped Over the DOG";
+console.log("String: " + str);
+function a(v : string) : string {
+  // The function will return all chars in lowercase.
+  return v.toLocaleLowerCase();
+}
+console.log("A:\n" + a(str) + "\n\n");
+
+// B)
+// Enter any two words from console and check whether they are same words or not.
+let str1 = readLine("Enter word 1:");
+let str2 = readLine("Enter word 2:");
+function b(v1 : string, v2 : string) : string {
+
+  return (v1 == v2) ? `${v1} and ${v2} is the same` : `${v1} and ${v2} is NOT the same`;
+}
+console.log("B:\n" + b(str1, str2) + "\n\n");
+
+
+// C)
+// Input word Donkey and display it as the word Monkey on the console.
+str = "Monkey";
+console.log("String: " + str);
+function c(v : string) : string {
+  return v.replace("M", "D");
+}
+console.log("C:\n" + c(str) + "\n\n");
+
+// D)
+// Replace ‘I’ with ‘We’ and ‘am’ with ‘are’ in given text below.
+// “I am going to visit Kolmården zoo tomorrow. I am a big fan of the dolphin show. I may watch all dolphin shows during the day. I would like to take a gondola safari as well. I wish to visit Bamse and his team there.”
+str = "I am going to visit Kolmården zoo tomorrow. I am a big fan of the dolphin show. I may watch all dolphin shows during the day. I would like to take a gondola safari as well. I wish to visit Bamse and his team there.";
+console.log("String: " + str);
+function d(v : string) : string {
+  return v.replace("I", "We").replace("am", "are");
+}
+console.log("D:\n" + d(str) + "\n\n");
+
+
+// E)
+// Actual string is "She is the popular singer." and the expected string is "She is the most popular singer."
+str = "She is the popular singer.";
+console.log("String: " + str);
+function e(v : string) : string {
+  return v.replace("popular", "most popular");
+}
+console.log("E:\n" + e(str) + "\n\n");
+
+// F)
+// Actual string is "A friend is the asset of your life." and the expected string is "A true friend is the greatest asset of your life"
+
+str = "A friend is the asset of your life.";
+function f(v : string, oldWords : string[], newWords : string[]) : string {
+  for (let [i, w] of oldWords.entries()) {
+    v = v.replace(w, newWords[i]);
+  }
+  return v;
+}
+console.log("F:\n" + f(str, ["friend", "asset"], ["true friend", "greatest asset"]) + "\n\n");
+
+// G)
+// Actual string is "My name is Sebastian Vallin." Expected string: "Sebastian Vallin"
+str = "";
+function g(v : string) : string {
+  return v.toLocaleLowerCase();
+}
+console.log("G:\n" + g(str) + "\n\n");
+
+// H)
+
+// Actual string is "Arrays are very common in programming, they look something like: [1,2,3,4,5]" Expected string: "[1,4,5,6,7,8]"
+
+// Yes, i overcomplicated but just for pactice.
+
+str = "Arrays are very common in programming, they look something like: [1,2,3,4,5]";
+function h(v : string, addToSeq : number) : string {
+  let arr : number[] = [];
+
+  for (let nums of v.substring(v.indexOf("[") + 1, v.indexOf("]")).split(",")) {
+    arr.push(Number(nums));
+  }
+  
+  for (let i = 0; i < addToSeq; i++) {
+    arr.push(arr[arr.length-1] + 1);
+  }
+
+  return "[" + arr.join(",") + "]";
+}
+
+console.log("H:\n" + h(str, 3).replace(",2,3", "") + "\n\n");
+
+}
+
+
 
 function runExerciseEleven() {}
 
