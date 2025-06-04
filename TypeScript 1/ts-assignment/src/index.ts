@@ -248,29 +248,27 @@ function g(v : string) : string {
 console.log("G:\n" + g(str) + "\n\n");
 
 // H)
-
 // Actual string is "Arrays are very common in programming, they look something like: [1,2,3,4,5]" Expected string: "[1,4,5,6,7,8]""
 
 str = "Arrays are very common in programming, they look something like: [1,2,3,4,5]";
 function h(v : string, addToSeq : number) : string {
-  let arr : number[] = [];
-
-  for (let nums of v.substring(v.indexOf("[")+1, v.indexOf("]")).split(",")) {
-    arr.push(Number(nums));
-  }
-  
-  for (let i = 0; i < addToSeq; i++) {
-    arr.push(arr[arr.length-1] + 1);
-  }
-
+  let arr : string[] = v.substring(v.indexOf("[")+1, v.indexOf("]")).split(",");
+  for (let i = 0; i < addToSeq; i++) arr.push(Number(Number(arr[arr.length-1]) + 1).toString());
   return "[" + arr.join(",") + "]";
 }
 console.log("H:\n" + h(str, 3).replace(",2,3", "") + "\n\n");
 }
 
-
-
 function runExerciseEleven() {}
+
+function runExercise12() {}
+
+function runExercise13() {}
+
+function runExercise14() {}
+
+function runExercise15() {}
+
 
 /* ^^^^^^^^^^^^  Add the rest of the exercise functions above this line ^^^^^^^^^^^^ */
 
@@ -315,6 +313,18 @@ while (keepAlive) {
         break;
       case 11:
         runExerciseEleven();
+        break;
+      case 12:
+        runExercise12();
+        break;
+      case 13:
+        runExercise13();
+        break;
+      case 14:
+        runExercise14();
+        break;
+      case 15:
+        runExercise15();
         break;
 
       /* ^^^^^^^^^^^^  Add the rest of the exercises above this line ^^^^^^^^^^^^ */
