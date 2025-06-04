@@ -207,7 +207,13 @@ console.log("C:\n" + c(str) + "\n\n");
 str = "I am going to visit Kolmården zoo tomorrow. I am a big fan of the dolphin show. I may watch all dolphin shows during the day. I would like to take a gondola safari as well. I wish to visit Bamse and his team there.";
 console.log("String: " + str);
 function d(v : string) : string {
-  return v.replace("I", "We").replace("am", "are");
+  while(v.indexOf("I") != -1) {
+    v=v.replace("I", "We");
+  } 
+  while(v.indexOf(" am") != -1) {
+    v=v.replace(" am", " are");
+  } 
+  return v;
 }
 console.log("D:\n" + d(str) + "\n\n");
 
@@ -235,23 +241,21 @@ console.log("F:\n" + f(str, ["friend", "asset"], ["true friend", "greatest asset
 
 // G)
 // Actual string is "My name is Sebastian Vallin." Expected string: "Sebastian Vallin"
-str = "";
+str = "My name is Sebastian Vallin.";
 function g(v : string) : string {
-  return v.toLocaleLowerCase();
+  return v.slice(v.indexOf("is") + 3, v.length-1);
 }
 console.log("G:\n" + g(str) + "\n\n");
 
 // H)
 
-// Actual string is "Arrays are very common in programming, they look something like: [1,2,3,4,5]" Expected string: "[1,4,5,6,7,8]"
-
-// Yes, i overcomplicated but just for pactice.
+// Actual string is "Arrays are very common in programming, they look something like: [1,2,3,4,5]" Expected string: "[1,4,5,6,7,8]""
 
 str = "Arrays are very common in programming, they look something like: [1,2,3,4,5]";
 function h(v : string, addToSeq : number) : string {
   let arr : number[] = [];
 
-  for (let nums of v.substring(v.indexOf("[") + 1, v.indexOf("]")).split(",")) {
+  for (let nums of v.substring(v.indexOf("[")+1, v.indexOf("]")).split(",")) {
     arr.push(Number(nums));
   }
   
@@ -261,9 +265,7 @@ function h(v : string, addToSeq : number) : string {
 
   return "[" + arr.join(",") + "]";
 }
-
 console.log("H:\n" + h(str, 3).replace(",2,3", "") + "\n\n");
-
 }
 
 
