@@ -522,7 +522,6 @@ function runExercise19() : void {
     return 0.5*w*h;
   }
 
-
   console.log("Area of triangle: " + showArea(triangle1.width, triangle1.height));
 
 }
