@@ -506,8 +506,27 @@ function runExercise19() : void {
     height and width as parameters to that function. The function returns the area. Display the result in the console.
   */
 
-    
+  // wanted to try interface.
+  interface triangle {
+    width: number;
+    height: number;
+  }
+
+
+  const triangle1 : triangle = {
+    width: Number(readLine("Width of triangle:")),
+    height: Number(readLine("Height of triangle:")),
+  }
+
+  function showArea(w:number,h:number) : number {
+    return 0.5*w*h;
+  }
+
+
+  console.log("Area of triangle: " + showArea(triangle1.width, triangle1.height));
+
 }
+
 function runExercise20() : void {}
 function runExercise21() : void {}
 function runExercise22() : void {}
