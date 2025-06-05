@@ -467,11 +467,47 @@ function runExercise16() : void {
 }
 
 
-function runExercise17() : void{
-  
+function runExercise17() : void {
+  /*
+Ask the user to enter the number of values to display from the Fibonacci series, this number can be ither number of values to display or max number to display (you only need to implement one of those two). Calculate and display the selected number from the Fibonacci series on the console.
+Example Entered 7
+Result 0, 1, 1, 2, 3, 5, 8 (assuming the max number off values was implemented)
+  */
+
+  function fib(n : number) : number {
+    if (n <= 0) return 0;
+    if (n < 2) return 1;
+    return fib(n-2) + fib(n-1);
+  }
+
+  function fibList(n : number) : number[] {
+    const tmpList : number[] = [];
+    for (let i = 0; i < n; i++) {
+      tmpList.push(fib(i));
+    }
+    return tmpList;
+  }
+
+  console.log(fibList(Number(readLine("Fib nr:"))).join(', '));
+
 }
-function runExercise18() : void {}
-function runExercise19() : void {}
+
+
+function runExercise18() : void {
+  // There is no 18 in the assignment document?
+  console.log("There is no 18 in the assignment document?");
+}
+
+
+function runExercise19() : void {
+  /*
+    Exercise 19
+    Ask the user for the height and width of a triangle. Call a function to calculate the area of a triangle and have
+    height and width as parameters to that function. The function returns the area. Display the result in the console.
+  */
+
+    
+}
 function runExercise20() : void {}
 function runExercise21() : void {}
 function runExercise22() : void {}
