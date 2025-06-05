@@ -9,7 +9,7 @@ const readLine = prompt({ sigint: true });
 
 function runExerciseOne() {
 
-  const firstName = "Tobias";
+  const firstName : string = "Tobias";
   const lastName = "Eriksson"; // (infered)
   console.log(
     `Hello ${firstName} ${lastName}! I'm glad to inform you that you are the test subject for my first assignment!`
@@ -79,7 +79,7 @@ function runExerciseFive() {
 
   const areConsecutive = (a : number, b : number, asBool : boolean) : consec => {
     if (asBool) return (Math.abs(a-b) == 1);
-    return (Math.abs(a-b) == 1) ? false : "are not";
+    return (Math.abs(a-b) == 1) ? "are" : "are not";
   }
 
   const 
@@ -111,7 +111,7 @@ function runExerciseSeven() {
   let temp : number = Math.round(Number(readLine("Body temp: "))*10)/10; //This will do.
   ;
   const isFever = (v : number) : string => {
-   return (v >= 38) ? (v >= 42) ? "- You died from fever. RIP <3." : (v >= 39.1) ? "is high fever! :( You might die." : "is normal fever, go home and take some pills." : "is not fever, youré ok! =)";
+   return (v >= 38) ? (v >= 42) ? "- You died from fever. RIP <3." : (v >= 39.1) ? "is high fever! :(" : "is normal fever, go home and take some pills." : "is not fever, youré ok! =)";
   };
   console.log(`${temp} ${isFever(temp)}`);
 
@@ -125,7 +125,7 @@ function runExerciseEight() {
     if (g == "A") return "Excellent! Youré a perfeft human beeing!";
     if (g == "B") return "You are really good, but not as good as the perfect ones. Amlost there!";
     if (g == "C") return "Good but mediocer. Not impressive but good enough.";
-    if (g == "D") return "You are ok+. Good, but you should not be proud of it.";
+    if (g == "D") return "You are ok+. Good, but you shouldn´t be proud of it.";
     return "Ok";
   }
 
@@ -259,11 +259,96 @@ function h(v : string, addToSeq : number) : string {
 console.log("H:\n" + h(str, 3).replace(",2,3", "") + "\n\n");
 }
 
-function runExerciseEleven() {}
+function runExerciseEleven() {
+ // Write a program that asks user an arithmetic operator ('+','-','*' or '/') and two operands. Perform the corresponding calculation on the operands and display the result (use switch case).
+  type Ops = '+' | '-' | '*' | '/';
 
-function runExercise12() {}
+  function isOps(v : string) : v is Ops {
+    const validOps : readonly string[] =  ['+','-','*','/'];
+    return validOps.includes(v);
+  }
 
-function runExercise13() {}
+  function getOp() : Ops {
+    let rl : string;
+    while(true) if (isOps(rl = readLine("Enter + - / *:"))) return rl;
+  }
+
+  function getNum(numberName : string) : number {
+    let rl : number;
+    while(true) if (Number.isFinite(rl = Number(readLine(`Enter ${numberName}:`)))) return rl;
+  }
+
+
+  let calc : [Number, Ops, Number, Number];  
+  const num1 : number = getNum("number 1"),
+  num2 : number = getNum("number 2 (Tips! Try divide by zero) "),
+  op : Ops = getOp();
+
+  calc = [num1, op, num2, getRes(num1,num2,op)];
+
+  let str = "";
+  for (let [i, itm] of calc.entries()) {
+    // iterable? Yes. Seems to be infered as string
+    str += ((i == calc.length-1) ? "= " + itm : itm + " ");
+  }
+  console.log(str);
+  //console.log(`${calc[0]} ${calc[1]} ${calc[2]} =  ${calc[3]}`);
+
+  function divZero (n : number) : number {
+    console.log(`${n} / 0  ${n > 0 ? 'lim -> ∞+' : n <0 ? 'lim -> ∞-' : '=0 (indeterminate)'}`);
+    return (n<0) ? -Infinity : (n>0) ? Infinity : 0;
+  }
+
+  function getRes(n1 :number, n2 : number, operator : Ops) : number {
+    switch (operator) {
+        case '+': return n1 + n2;
+        case '-': return n1 - n2;
+        case '*': return n1 * n2;
+        case '/': return (n2 != 0) ? n1 / n2 : divZero(n1);
+      } 
+    }
+}
+
+
+
+function runExercise12() {
+
+  /*
+    Ask user to enter any number smaller than 100. Print all values from 1 to the entered number in ascending and descending order.
+    Write the same thing using the different loops (for, while and do-while).
+  */
+
+  function getNumUnder100() : number {
+    let rl : number;
+    while(true) if (Number.isFinite(rl = Number(readLine("Enter a number under 100: ")))) if (rl < 100) return rl;
+  }
+  
+  const num = getNumUnder100();
+
+  let strFor : string[] = [];
+  let strDo : string[] = [];
+  let strWhile : string[] = [];
+  
+  for (let i : number = 0; i < num; i++) strFor.push(Number(i+1).toString());
+  console.log("For:\n" + strFor.join(','));
+
+  do strDo.push((strDo.length+1).toString()); while(strDo.length < num)
+  console.log("Do:\n" + strDo.join(','));
+
+  while (strWhile.length < num) strWhile.push((strWhile.length+1).toString());
+  console.log("while:\n" + strWhile.join(','));
+
+}
+
+function runExercise13() {
+  /*
+  Generate a random number and save it to a variable, SecretNumber.
+  If he/she misses the first guess ask the user if he/she wants to guess the number again. Repeat the guessing until user answers no or guess the correct number.
+  Limit the secret number to be from 1 to 10 so that it not become to hard to guess right.
+  */
+  const SecretNumber : number = Math.floor(Math.random()*10+1);
+
+}
 
 function runExercise14() {}
 
