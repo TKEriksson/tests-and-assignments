@@ -346,13 +346,147 @@ function runExercise13() {
   If he/she misses the first guess ask the user if he/she wants to guess the number again. Repeat the guessing until user answers no or guess the correct number.
   Limit the secret number to be from 1 to 10 so that it not become to hard to guess right.
   */
-  const SecretNumber : number = Math.floor(Math.random()*10+1);
+  
+  let rl : number = NaN;
+  while(!Number.isFinite(rl) || rl <= 0) rl = Number.parseInt(readLine("From:"));
+  const from = rl;
+  rl = NaN;
+  while(!Number.isFinite(rl) || rl <= from) rl = Number.parseInt(readLine("To:"));
+  const to = rl;
+
+  const arrayFromTo : number[] = [];
+  for (let i = from; i <= to; i++) arrayFromTo.push(i);
+  
+  const SecretNumber = Math.floor(Math.random() * (to - from + 1)) + from;
+
+  type Guess = typeof arrayFromTo[number] | 'no';
+
+  function isGuess(v : string | number) : v is Guess {
+    const validGuess : readonly string[] = [...arrayFromTo.map(v => v.toString()), "no"];
+    return (validGuess.includes(v.toString()));
+  }
+
+  while(true) {
+    let rl = readLine(`Enter number from ${from} to ${to} (or 'no' to stop guess):`);
+    if (isGuess(rl)) {
+     if (Number(rl) === SecretNumber) {
+      console.log("You guessed right! It was " + SecretNumber);
+      break;
+     } else if (rl === 'no') {
+      console.log("You gave up. Then number was: " + SecretNumber);
+      break;
+     } else {
+      console.log("Wrong number.");
+     }
+    } else {
+      console.log("Invalid input.");
+    }
+  }
+}
+
+function runExercise14() {
+  /*
+  Display the multiplication table 10 * 10 on the console.
+  */
+
+  let str : string = "|";
+  const r = 10;
+  const c = 10;
+  for (let i = 1; i <= r; i++) {
+    for (let j = 1; j <= c; j++) {
+      str += ' ' + String(Number(i * j)).padStart(String(r*c).length, " ") + ' |';
+    }
+    str+='\n|';
+  }
+  console.log(str.slice(0, str.length-1));
 
 }
 
-function runExercise14() {}
+function runExercise15() : void {
+  //Print the following * pattern on console using loop
 
-function runExercise15() {}
+  //* * * * * 
+  // * * * *
+  //  * * *
+  //   * *
+  //    *
+
+  let rows : number = 0;
+  while (!(rows > 1 && rows <= 50)) {
+    rows = Number(readLine("How many rows? Min 2 max 50: "));
+  }
+
+  let str : string = "";
+  for (let i = 0; i < rows; i++) {
+    str += String(' ').repeat(i) + String('* ').repeat(rows-i);
+    str = str.slice(0, str.length-1);
+    str += '\n';
+  }
+  console.log(str);
+  
+}
+
+function runExercise16() : void {
+// Write a method that keeps asking the user to enter numbers, until the user enters 0. Then displays a sum and average of all numbers entered before 0
+
+  class Numbers {
+
+    listOfNums : number[] = [];
+
+    constructor() {
+
+    }
+
+    getAvg() : number {
+      return this.listOfNums.length > 0 ? this.getSum() / this.listOfNums.length : 0;
+    }
+
+    getSum() : number {
+      return this.listOfNums.reduce((a, c) => a+c, 0);
+    }
+
+    getNums() : string {
+      let rl : number;
+      while(true) {
+        rl = Number(readLine("Enter number:"));
+        if (!Number.isFinite(rl)) rl = 0;
+        if (rl == 0) {
+          return (`The numbers you have entered was:\n${this.listOfNums.join(', ')}\nSum of all numbers: ${this.getSum()}\nAverage of all numbers: ${this.getAvg()}`);
+        } else {
+          this.listOfNums.push(rl);
+        }
+      }
+
+    }
+
+  }
+
+  const numberCounter = new Numbers();
+  console.log(numberCounter.getNums());
+
+}
+
+
+function runExercise17() : void{
+  
+}
+function runExercise18() : void {}
+function runExercise19() : void {}
+function runExercise20() : void {}
+function runExercise21() : void {}
+function runExercise22() : void {}
+function runExercise23() : void {}
+function runExercise24() : void {}
+function runExercise25() : void {}
+function runExercise26() : void {}
+function runExercise27() : void {}
+function runExercise28() : void {}
+function runExercise29() : void {}
+function runExercise30() : void {}
+function runExercise31() : void {}
+function runExercise32() : void {}
+function runExercise33() : void {}
+function runExercise34() : void {}
 
 
 /* ^^^^^^^^^^^^  Add the rest of the exercise functions above this line ^^^^^^^^^^^^ */
@@ -410,6 +544,63 @@ while (keepAlive) {
         break;
       case 15:
         runExercise15();
+        break;
+      case 16:
+        runExercise16();
+        break;
+      case 17:
+        runExercise17();
+        break;
+      case 18:
+        runExercise18();
+        break;
+      case 19:
+        runExercise19();
+        break;
+      case 20:
+        runExercise20();
+        break;
+      case 21:
+        runExercise21();
+        break;
+      case 22:
+        runExercise22();
+        break;
+      case 23:
+        runExercise23();
+        break;
+      case 24:
+        runExercise24();
+        break;
+      case 25:
+        runExercise25();
+        break;
+      case 26:
+        runExercise26();
+        break;
+      case 27:
+        runExercise27();
+        break;
+      case 28:
+        runExercise28();
+        break;
+      case 29:
+        runExercise29();
+        break;
+      case 30:
+        runExercise30();
+        break;
+      case 31:
+        runExercise31();
+        break;
+      case 32:
+        runExercise32();
+        break;
+      case 33:
+        runExercise33();
+        break;
+      case 34:
+        runExercise34();
         break;
 
       /* ^^^^^^^^^^^^  Add the rest of the exercises above this line ^^^^^^^^^^^^ */
